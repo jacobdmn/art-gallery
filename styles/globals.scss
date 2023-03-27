@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'Montserrat', sans-serif;
+  }
+  body {
+    background-image: url('/bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    // max-width: 1536px;
+    // margin-inline: auto;
+  }
+  button {
+    outline: none !important;
+  }
+}
+
+@layer utilities {
+  // .bg-blurred {
+  //   @apply rounded-[20px] border-[1.5px] border-cold/10 bg-black/70 backdrop-blur-sm;
+  // }
+}
