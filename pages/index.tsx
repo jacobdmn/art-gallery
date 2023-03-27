@@ -1,5 +1,6 @@
 import { GalleryItemType } from './../types'
 import Gallery from '../components/Gallery'
+import { useExternalContext } from '../context/ExternalContext'
 
 export async function getStaticProps() {
   const gallery = [
@@ -73,5 +74,8 @@ export async function getStaticProps() {
 }
 
 export default function HomePage({ gallery }: { gallery: GalleryItemType[] }) {
+  const { setGallery } = useExternalContext()
+
+  setGallery(gallery)
   return <Gallery gallery={gallery} />
 }

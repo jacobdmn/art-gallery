@@ -16,7 +16,7 @@ const Navbar = () => {
   //   const { connect, address } = useStateContext()
 
   return (
-    <div className="sticky top-7 z-10 mb-[35px] flex flex-col-reverse justify-between gap-6 md:flex-row">
+    <div className="sticky top-8 z-10 mb-[35px] flex flex-col-reverse justify-between gap-6 md:flex-row">
       <Toaster position="top-center" reverseOrder={false} />
       <div className="max-2-[458px] flex h-[52px] flex-row rounded-full border-[1.5px] border-cold/20 bg-black/70 py-2 pl-4 pr-2 backdrop-blur-sm lg:flex-1">
         <input
@@ -26,7 +26,7 @@ const Navbar = () => {
         />
 
         <div className="brightness flex h-full w-[72px] cursor-pointer items-center justify-center rounded-[20px] bg-[#EF5DA8]">
-          <AiOutlineSearch className="h-[15px] w-[15px] object-contain" />
+          <AiOutlineSearch className="h-[15px] w-[15px] object-contain text-white" />
         </div>
       </div>
 

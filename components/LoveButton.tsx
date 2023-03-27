@@ -12,7 +12,7 @@ const LoveButton = ({
   return (
     <button
       onClick={onClick}
-      className="right-18 absolute bottom-4 grid h-10 w-10 place-content-center rounded-full border-2 border-current  p-3  text-love outline-none transition-all hover:scale-[1.05] active:scale-[0.95] md:right-6"
+      className="absolute right-[4.5rem] bottom-4 grid h-10 w-10 place-content-center rounded-full border-2  border-current  p-3 text-love outline-none transition-all hover:scale-[1.05] active:scale-[0.95] md:right-8"
     >
       {liked ? (
         <AiFillHeart className={iconClassName} />

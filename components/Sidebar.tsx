@@ -32,7 +32,7 @@ const Sidebar = () => {
   const [isActive, setIsActive] = useState('dashboard')
 
   return (
-    <div className="sticky top-5 flex h-[93vh] flex-col items-center justify-between">
+    <div className="sticky top-8 flex h-[93vh] flex-col items-center justify-between">
       <Link href="/">
         <img
           src="/logo.svg"

@@ -7,6 +7,7 @@ import StarRatings from 'react-star-ratings'
 import VisitButton from '../components/VisitButton'
 
 import { GalleryItemType } from './../types'
+import { useExternalContext } from '../context/ExternalContext'
 
 function cn(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -19,7 +20,7 @@ export default function GalleryItem({
 }) {
   const [isLoading, setLoading] = useState(true)
 
-  const wishList = [1, 3, 5]
+  const { wishlist, setWishlist } = useExternalContext()
 
   return (
     <div className="overflow-hidden rounded-lg border-[1px] border-cold/10 pb-3">
@@ -37,7 +38,18 @@ export default function GalleryItem({
           )}
           onLoadingComplete={() => setLoading(false)}
         />
-        <LoveButton liked={wishList.includes(galleryItem.id)} />
+        <LoveButton
+          liked={wishlist?.includes(galleryItem.id)}
+          onClick={() => {
+            const isLiked = wishlist?.includes(galleryItem.id)
+
+            setWishlist((prev: any) =>
+              isLiked
+                ? prev?.filter((item: any) => item !== galleryItem.id)
+                : [...prev, galleryItem.id]
+            )
+          }}
+        />
       </div>
       <div className="px-3">
         <h1 className="mt-4 text-xl text-white">{galleryItem.name}</h1>
