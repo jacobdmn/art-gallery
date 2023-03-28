@@ -13,6 +13,9 @@ function cn(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
+const imageLoader = ({ src, width }: { src: string; width: string | number }) =>
+  src
+
 export default function GalleryItem({
   galleryItem,
 }: {
@@ -37,6 +40,7 @@ export default function GalleryItem({
               : 'scale-100 blur-0 grayscale-0'
           )}
           onLoadingComplete={() => setLoading(false)}
+          loader={imageLoader}
         />
         <LoveButton
           liked={wishlist?.includes(galleryItem.id)}
