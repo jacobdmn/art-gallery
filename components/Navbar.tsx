@@ -88,6 +88,7 @@ const Navbar = () => {
             )
 
           setGallery(newGallery)
+          console.log(newGallery)
         }
       }
 
