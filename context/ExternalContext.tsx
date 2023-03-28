@@ -5,6 +5,7 @@ const ExternalContext = createContext<any>(null)
 
 const ExternalContextProvider = ({ children }: any) => {
   const [gallery, setGallery] = useState<GalleryItemType[]>()
+  const [loadingGallery, setLoadingGallery] = useState(false)
 
   const [wishlist, setWishlist] = useState<any[]>([0, 3])
 
@@ -13,6 +14,8 @@ const ExternalContextProvider = ({ children }: any) => {
     setWishlist,
     gallery,
     setGallery,
+    loadingGallery,
+    setLoadingGallery,
   }
 
   return (

@@ -24,12 +24,10 @@ const Navbar = () => {
 
   const searchBoxInputRef = useRef<HTMLInputElement>(null)!
 
-  const { setGallery } = useExternalContext()
-
-  const [loading, setLoading] = useState(false)
+  const { setGallery, setLoadingGallery } = useExternalContext()
 
   const onPlaceChanged = async () => {
-    setLoading(true)
+    setLoadingGallery(true)
 
     const address = searchBoxInputRef?.current?.value
     if (!address) return
@@ -83,7 +81,7 @@ const Navbar = () => {
           )
 
         setGallery(newGallery)
-        setLoading(false)
+        setLoadingGallery(false)
       }
     }
 

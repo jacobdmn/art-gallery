@@ -18,6 +18,20 @@
   button {
     outline: none !important;
   }
+
+  #loader__ {
+    animation: loaderstrokedash 1s ease-in-out both infinite;
+  }
+
+  @keyframes loaderstrokedash {
+    0% {
+      stroke-dasharray: 0 226;
+    }
+    80%,
+    100% {
+      stroke-dasharray: 659 226;
+    }
+  }
 }
 
 @layer utilities {
