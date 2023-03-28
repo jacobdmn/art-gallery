@@ -26,15 +26,15 @@ export default function GalleryItem({
   const { wishlist, setWishlist } = useExternalContext()
 
   return (
-    <div className="flex flex-col overflow-hidden rounded-lg border-[1px] border-cold/10 pb-3">
-      <div className="relative h-[102vw] w-[98vw] overflow-hidden !rounded-lg bg-cold/50 md:max-h-[370px] md:max-w-[300px]">
+    <div className="flex flex-col overflow-hidden rounded-lg border-[1px] border-cold/10 pb-3 md:max-w-[300px]">
+      <div className="relative h-[102vw] w-[98vw] overflow-hidden bg-cold/50 md:max-h-[330px]">
         <Image
           alt=""
           src={galleryItem.image}
           layout="fill"
           objectFit="cover"
           className={cn(
-            'rounded-lg duration-700 ease-in-out group-hover:opacity-75',
+            'rounded-t-lg duration-700 ease-in-out group-hover:opacity-75',
             isLoading
               ? 'scale-110 blur-2xl grayscale'
               : 'scale-100 blur-0 grayscale-0'

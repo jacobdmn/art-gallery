@@ -27,72 +27,83 @@ const Navbar = () => {
   const { setGallery, setLoadingGallery } = useExternalContext()
 
   const onPlaceChanged = async () => {
-    setLoadingGallery(true)
+    window &&
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      })
 
     const address = searchBoxInputRef?.current?.value
     if (!address) return
 
-    const results = await getGeocode({ address })
-    const { lat, lng } = getLatLng(results[0])
+    //  DO NOT WRITE CODE BEFORE THIS LINE
+    try {
+      setLoadingGallery(true)
+      const results = await getGeocode({ address })
+      const { lat, lng } = getLatLng(results[0])
 
-    const map = new google.maps.Map(googlemap.current!, {
-      center: { lat, lng },
-      zoom: 10,
-    })
+      const map = new google.maps.Map(googlemap.current!, {
+        center: { lat, lng },
+        zoom: 10,
+      })
 
-    const service = new google.maps.places.PlacesService(map)
+      const service = new google.maps.places.PlacesService(map)
 
-    const callback = (result: any, status: any) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        const newGallery = result
-          .filter((item: any) => item.photos)
-          .map(
-            ({
-              place_id,
-              name,
-              user_ratings_total,
-              icon,
-              geometry,
-              photos,
-              vicinity,
-            }: {
-              place_id: string
-              name: string
-              user_ratings_total: number
-              icon: string
-              geometry: {
-                location: {
-                  lat: () => number
-                  lng: () => number
+      const callback = async (result: any, status: any) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          const newGallery = result
+            .filter((item: any) => item.photos)
+            .map(
+              ({
+                place_id,
+                name,
+                user_ratings_total,
+                icon,
+                photos,
+                vicinity,
+              }: {
+                place_id: string
+                name: string
+                user_ratings_total: number
+                icon: string
+                geometry: {
+                  location: {
+                    lat: () => number
+                    lng: () => number
+                  }
                 }
-              }
-              photos: any
-              vicinity: string
-            }) => ({
-              id: place_id,
-              name,
-              location: {
-                name: vicinity,
-                url: `https://maps.google.com/?q=${geometry.location.lat()},${geometry.location.lng()}`,
-              },
-              rating: user_ratings_total || 0,
-              image: (photos && photos[0]?.getUrl()) || icon,
-            })
-          )
+                photos: any
+                vicinity: string
+              }) => ({
+                id: place_id,
+                name,
+                location: {
+                  name: vicinity,
+                  url: `https://www.google.com/maps/place/?q=place_id:${place_id}`,
+                },
+                rating: user_ratings_total || 0,
+                image: (photos && photos[0]?.getUrl()) || icon,
+              })
+            )
 
-        setGallery(newGallery)
-        setLoadingGallery(false)
+          setGallery(newGallery)
+        }
       }
-    }
 
-    service.nearbySearch(
-      {
-        location: { lat, lng },
-        radius: 500000,
-        type: 'art_gallery',
-      },
-      callback
-    )
+      service.nearbySearch(
+        {
+          location: { lat, lng },
+          radius: 500000,
+          type: 'art_gallery',
+        },
+        callback
+      )
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoadingGallery(false)
+    }
   }
 
   useEffect(() => {
