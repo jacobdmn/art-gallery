@@ -159,6 +159,7 @@ const Navbar = () => {
                   if (!link.disabled) {
                     setIsActive(link.name)
                     router.push(link.link)
+                    setToggleDrawer((prev) => !prev)
                   }
                 }}
               >
