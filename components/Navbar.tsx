@@ -132,9 +132,9 @@ const Navbar = () => {
 
       {/* Small screen navigation */}
       <div className="relative flex items-center justify-between rounded-lg bg-black/70 backdrop-blur-sm sm:hidden">
-        <Link href="/">
+        <a href="/">
           <img src="/logo.svg" className="bg-blurred h-[70px] w-[100px] p-4" />
-        </Link>
+        </a>
 
         <FiMenu
           className="mr-4 h-[34px] w-[34px] cursor-pointer object-contain text-love"

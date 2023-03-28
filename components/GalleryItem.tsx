@@ -26,7 +26,7 @@ export default function GalleryItem({
   const { wishlist, setWishlist } = useExternalContext()
 
   return (
-    <div className="flex flex-col overflow-hidden rounded-lg border-[1px] border-cold/10 pb-3 md:max-w-[300px]">
+    <div className="relative flex flex-col overflow-hidden rounded-lg border-[1px] border-cold/10 pb-3 md:max-w-[300px]">
       <div className="relative h-[102vw] w-[98vw] overflow-hidden bg-cold/50 md:max-h-[330px]">
         <Image
           alt=""
@@ -42,19 +42,19 @@ export default function GalleryItem({
           onLoadingComplete={() => setLoading(false)}
           loader={imageLoader}
         />
-        <LoveButton
-          liked={wishlist?.includes(galleryItem.id)}
-          onClick={() => {
-            const isLiked = wishlist?.includes(galleryItem.id)
-
-            setWishlist((prev: any) =>
-              isLiked
-                ? prev?.filter((item: any) => item !== galleryItem.id)
-                : [...prev, galleryItem.id]
-            )
-          }}
-        />
       </div>
+      <LoveButton
+        liked={wishlist?.includes(galleryItem.id)}
+        onClick={() => {
+          const isLiked = wishlist?.includes(galleryItem.id)
+
+          setWishlist((prev: any) =>
+            isLiked
+              ? prev?.filter((item: any) => item !== galleryItem.id)
+              : [...prev, galleryItem.id]
+          )
+        }}
+      />
       <div className="flex grow flex-col px-3">
         <h1 className="mt-4 text-xl text-white">{galleryItem.name}</h1>
         <p className="mt-1 grow text-sm font-medium text-cold">

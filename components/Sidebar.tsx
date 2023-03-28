@@ -33,12 +33,12 @@ const Sidebar = () => {
 
   return (
     <div className="sticky top-0 flex h-[94vh] flex-col items-center justify-between md:top-7">
-      <Link href="/">
+      <a href="/">
         <img
           src="/logo.svg"
           className="bg-blurred h-[76px] w-[76px] !border-none  p-4"
         />
-      </Link>
+      </a>
 
       <div className="bg-blurred mt-6 flex w-[76px] flex-1 flex-col items-center justify-between py-4">
         <div className="flex flex-col items-center justify-center gap-3">
