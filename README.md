@@ -3,6 +3,7 @@
 ## Buit with:
 
     - Nextjs
+    - TypeScript
     - TailwindCSS + SASS
     - ContextAPI
     - Google Maps API
