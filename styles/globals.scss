@@ -13,8 +13,8 @@
     background-size: cover;
     background-attachment: fixed;
     position: relative;
-    // max-width: 1536px;
-    // margin-inline: auto;
+    max-width: 1536px;
+    margin-inline: auto;
 
     @media (max-width: 450px) {
       & {
@@ -39,10 +39,4 @@
       stroke-dasharray: 659 226;
     }
   }
-}
-
-@layer utilities {
-  // .bg-blurred {
-  //   @apply rounded-[20px] border-[1.5px] border-cold/10 bg-black/70 backdrop-blur-sm;
-  // }
 }
