@@ -1,12 +1,10 @@
-declare module 'react-star-ratings'
-
 export type GalleryItemType = {
-  id: number
+  id: string
   name: string
   location: {
     name: string
     url: string
   }
-  rating: 4.9
+  rating: number
   image: string
 }

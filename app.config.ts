@@ -8,6 +8,10 @@ import { BiMoneyWithdraw } from 'react-icons/bi'
 
 import { BsFillBagHeartFill } from 'react-icons/bs'
 
+export const libraries:
+  | ('drawing' | 'geometry' | 'localContext' | 'places' | 'visualization')[]
+  | undefined = ['places']
+
 export const navlinks = [
   {
     name: 'dashboard',
@@ -44,3 +48,7 @@ export const navlinks = [
     disabled: true,
   },
 ]
+
+export const website = {
+  name: 'Artfi',
+}

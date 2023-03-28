@@ -8,7 +8,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ExternalContextProvider>
       <Head>
-        <title>Art Gallery</title>
+        <meta charSet="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Layout>
         <Component {...pageProps} />

@@ -1,10 +1,10 @@
 import { createContext, useContext, useState } from 'react'
-import { GalleryItemType } from '../types'
+import { GalleryItemType } from '../internal'
 
 const ExternalContext = createContext<any>(null)
 
 const ExternalContextProvider = ({ children }: any) => {
-  const [gallery, setGallery] = useState<GalleryItemType[]>([])
+  const [gallery, setGallery] = useState<GalleryItemType[]>()
 
   const [wishlist, setWishlist] = useState<any[]>([0, 3])
 

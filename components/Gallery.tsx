@@ -1,5 +1,5 @@
 import GalleryItem from './../components/GalleryItem'
-import { GalleryItemType } from './../types'
+import { GalleryItemType } from '../internal'
 
 const Gallery = ({ gallery }: { gallery: GalleryItemType[] }) => {
   return (

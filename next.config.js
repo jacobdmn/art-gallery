@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['pbs.twimg.com'],
+    domains: ['pbs.twimg.com', 'maps.gstatic.com', 'maps.googleapis.com'],
   },
 }

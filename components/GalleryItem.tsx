@@ -6,7 +6,7 @@ import LoveButton from './../components/LoveButton'
 import StarRatings from 'react-star-ratings'
 import VisitButton from '../components/VisitButton'
 
-import { GalleryItemType } from './../types'
+import { GalleryItemType } from '../internal'
 import { useExternalContext } from '../context/ExternalContext'
 
 function cn(...classes: string[]) {
@@ -23,7 +23,7 @@ export default function GalleryItem({
   const { wishlist, setWishlist } = useExternalContext()
 
   return (
-    <div className="overflow-hidden rounded-lg border-[1px] border-cold/10 pb-3">
+    <div className="flex flex-col overflow-hidden rounded-lg border-[1px] border-cold/10 pb-3">
       <div className="relative h-[102vw] w-[98vw] overflow-hidden !rounded-lg bg-cold/50 md:max-h-[370px] md:max-w-[300px]">
         <Image
           alt=""
@@ -51,9 +51,9 @@ export default function GalleryItem({
           }}
         />
       </div>
-      <div className="px-3">
+      <div className="flex grow flex-col px-3">
         <h1 className="mt-4 text-xl text-white">{galleryItem.name}</h1>
-        <p className="mt-1 text-sm font-medium text-cold">
+        <p className="mt-1 grow text-sm font-medium text-cold">
           {galleryItem.location.name}
         </p>
         <p className="mt-1 flex items-center justify-between gap-3 text-lg font-medium text-gray-900">
