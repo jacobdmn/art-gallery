@@ -111,7 +111,7 @@ const Navbar = () => {
   }, [router])
 
   return (
-    <div className="sticky top-10 z-10 mb-[35px] flex flex-col-reverse justify-between gap-6 md:flex-row">
+    <div className="sticky top-0 z-10 mb-[35px] flex flex-col-reverse justify-between gap-6 md:top-10 md:flex-row">
       <Toaster position="top-center" reverseOrder={false} />
       <div className="max-2-[458px] flex h-[52px] w-full flex-row rounded-full border-[1.5px] border-cold/20 bg-black/70 py-2 pl-4 pr-2 backdrop-blur-sm lg:flex-1">
         {isLoaded && (
