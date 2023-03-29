@@ -2,13 +2,13 @@ import { useLoadScript } from '@react-google-maps/api'
 import { createContext, useContext, useEffect, useRef, useState } from 'react'
 import { GalleryItemType } from '../internal'
 import { libraries } from '../app.config'
-import { onPlaceChanged, _gallery } from '../utils/constants'
+import { ON_PLACE_CHANGED } from '../utils/constants'
 import { useRouter } from 'next/router'
 
 const ExternalContext = createContext<any>(null)
 
 const ExternalContextProvider = ({ children }: any) => {
-  const [gallery, setGallery] = useState<GalleryItemType[]>(_gallery)
+  const [gallery, setGallery] = useState<GalleryItemType[]>()
   const [loadingGallery, setLoadingGallery] = useState(false)
 
   const [wishlist, setWishlist] = useState<any[]>([0, 3])
@@ -23,9 +23,9 @@ const ExternalContextProvider = ({ children }: any) => {
     libraries,
   })
 
-  const RUN_onPlaceChanged = async () => {
+  const onPlaceChanged = async () => {
     const address = searchBoxInputRef?.current?.value
-    await onPlaceChanged(
+    await ON_PLACE_CHANGED(
       address,
       setLoadingGallery,
       googlemap.current!,
@@ -45,9 +45,20 @@ const ExternalContextProvider = ({ children }: any) => {
     googlemap,
     searchBoxInputRef,
     isLoaded,
-    RUN_onPlaceChanged,
+    onPlaceChanged,
     router,
   }
+
+  useEffect(() => {
+    isLoaded &&
+      googlemap.current &&
+      ON_PLACE_CHANGED(
+        'Rome, Italy',
+        setLoadingGallery,
+        googlemap.current!,
+        setGallery
+      )
+  }, [router, googlemap.current, isLoaded])
 
   return (
     <ExternalContext.Provider value={initialState}>
