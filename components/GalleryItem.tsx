@@ -26,7 +26,7 @@ export default function GalleryItem({
   const { wishlist, setWishlist } = useExternalContext()
 
   return (
-    <div className="relative flex cursor-default flex-col overflow-hidden rounded-lg border-[1px] border-cold/20 pb-3 transition-all hover:scale-[1.01] hover:border-cold/30 md:max-w-[300px]">
+    <div className="relative flex cursor-default flex-col overflow-hidden rounded-lg border-[1px] border-cold/20 pb-3 transition-all hover:scale-[1.005] hover:border-cold/30 md:max-w-[300px]">
       <div className="relative h-[102vw] w-[98vw] overflow-hidden bg-cold/50 md:max-h-[280px]">
         <Image
           alt=""

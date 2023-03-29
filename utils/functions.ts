@@ -19,10 +19,10 @@ export const ON_PLACE_CHANGED = async (
   try {
     setLoadingGallery(true)
     const results = await getGeocode({ address })
-    const { lat, lng } = getLatLng(results[0])
+    const geoLocation = getLatLng(results[0])
 
     const map = new google.maps.Map(googlemapCurrent, {
-      center: { lat, lng },
+      center: geoLocation,
       zoom: 10,
     })
 
@@ -67,19 +67,18 @@ export const ON_PLACE_CHANGED = async (
               },
               rating: rating || 0,
               ratingCount: user_ratings_total || 0,
-              image: (photos && photos[0]?.getUrl()) || icon,
-              open: opening_hours?.open_now,
+              image: photos[0]?.getUrl() || icon,
+              open: opening_hours?.isOpen(),
             })
           )
 
         setGallery(newGallery)
-        console.log(newGallery)
       }
     }
 
     service.nearbySearch(
       {
-        location: { lat, lng },
+        location: geoLocation,
         radius: 500000,
         type: 'art_gallery',
       },

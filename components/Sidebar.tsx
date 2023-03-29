@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Tooltip } from 'antd'
 import { navlinks } from '../utils/app.config'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 
 const Icon = ({
   styles,
@@ -30,6 +29,10 @@ const Icon = ({
 const Sidebar = () => {
   const router = useRouter()
   const [isActive, setIsActive] = useState('dashboard')
+
+  useEffect(() => {
+    setIsActive(router.pathname === '/' ? 'dashboard' : router.pathname)
+  }, [])
 
   return (
     <div className="sticky top-0 flex h-[94vh] flex-col items-center justify-between md:top-7">
