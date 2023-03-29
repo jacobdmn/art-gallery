@@ -53,15 +53,16 @@ const SearchBar = () => {
               ({
                 place_id,
                 name,
-                user_ratings_total,
+                rating,
                 geometry,
                 icon,
                 photos,
                 vicinity,
+                opening_hours,
+                user_ratings_total,
               }: {
                 place_id: string
                 name: string
-                user_ratings_total: number
                 icon: string
                 geometry: {
                   location: {
@@ -71,6 +72,9 @@ const SearchBar = () => {
                 }
                 photos: any
                 vicinity: string
+                opening_hours: any
+                rating: number
+                user_ratings_total?: number
               }) => ({
                 id: place_id,
                 name,
@@ -78,13 +82,15 @@ const SearchBar = () => {
                   name: vicinity,
                   url: `https://www.google.com/maps/search/?api=1&query=${geometry.location.lat()},${geometry.location.lng()}&query_place_id=${place_id}`,
                 },
-                rating: user_ratings_total || 0,
+                rating: rating || 0,
+                ratingCount: user_ratings_total || 0,
                 image: (photos && photos[0]?.getUrl()) || icon,
+                open: opening_hours?.open_now,
               })
             )
 
           setGallery(newGallery)
-          console.log(newGallery)
+          // console.log(result[0].opening_hours?.open_now)
         }
       }
 

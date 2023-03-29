@@ -6,5 +6,7 @@ export type GalleryItemType = {
     url: string
   }
   rating: number
+  ratingCount: number
   image: string
+  open?: boolean
 }
