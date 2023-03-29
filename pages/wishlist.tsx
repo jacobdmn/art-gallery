@@ -12,17 +12,11 @@ export default function HomePage() {
       <Head>
         <title>Wishlist | {website.name}</title>
       </Head>
-      {gallery && wishlist.length ? (
-        <Gallery
-          gallery={gallery.filter((item: GalleryItemType) =>
-            wishlist.includes(item.id)
-          )}
-        />
-      ) : (
-        <h1 className="text-2xl text-white ">
-          You haven't saved any places yet...
-        </h1>
-      )}
+      <Gallery
+        gallery={gallery?.filter((item: GalleryItemType) =>
+          wishlist.includes(item.id)
+        )}
+      />
     </>
   )
 }
