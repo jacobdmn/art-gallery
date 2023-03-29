@@ -9,7 +9,10 @@ const SearchBar = () => {
   return (
     <div className="max-2-[458px] flex h-[52px] w-full flex-row rounded-full border-[1.5px] border-cold/20 bg-black/70 py-2 pl-4 pr-2 backdrop-blur-sm lg:flex-1">
       {isLoaded && (
-        <StandaloneSearchBox onPlacesChanged={onPlaceChanged}>
+        <StandaloneSearchBox
+          onPlacesChanged={onPlaceChanged}
+          class="StandaloneSearchBox"
+        >
           <input
             type="text"
             placeholder="Search for places"

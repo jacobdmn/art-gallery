@@ -1,4 +1,4 @@
-import { GalleryItemType } from '../internal'
+import { GalleryItemType } from '../types/internal'
 import Gallery from '../components/Gallery'
 import { useExternalContext } from '../context/ExternalContext'
 import Head from 'next/head'

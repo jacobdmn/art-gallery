@@ -6,7 +6,7 @@ import LoveButton from './../components/LoveButton'
 import StarRatings from 'react-star-ratings'
 import VisitButton from '../components/VisitButton'
 
-import { GalleryItemType } from '../internal'
+import { GalleryItemType } from '../types/internal'
 import { useExternalContext } from '../context/ExternalContext'
 
 function cn(...classes: string[]) {
