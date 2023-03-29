@@ -68,10 +68,9 @@ export const ON_PLACE_CHANGED = async (
               rating: rating || 0,
               ratingCount: user_ratings_total || 0,
               image: photos[0]?.getUrl() || icon,
-              open: opening_hours?.isOpen(),
+              open: opening_hours?.open_now,
             })
           )
-
         setGallery(newGallery)
       }
     }

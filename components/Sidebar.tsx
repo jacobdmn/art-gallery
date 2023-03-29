@@ -31,7 +31,9 @@ const Sidebar = () => {
   const [isActive, setIsActive] = useState('dashboard')
 
   useEffect(() => {
-    setIsActive(router.pathname === '/' ? 'dashboard' : router.pathname)
+    setIsActive(
+      router.pathname === '/' ? 'dashboard' : router.pathname.split('/')[1]
+    )
   }, [])
 
   return (
