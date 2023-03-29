@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Tooltip } from 'antd'
-import { navlinks } from '../app.config'
+import { navlinks } from '../utils/app.config'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 

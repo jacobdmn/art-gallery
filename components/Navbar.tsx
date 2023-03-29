@@ -1,5 +1,5 @@
 import { Toaster } from 'react-hot-toast'
-import { navlinks } from '../app.config'
+import { navlinks } from '../utils/app.config'
 import { FiMenu } from 'react-icons/fi'
 import SearchBar from './SearchBar'
 import { useState } from 'react'

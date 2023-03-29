@@ -1,8 +1,8 @@
 import { useLoadScript } from '@react-google-maps/api'
 import { createContext, useContext, useEffect, useRef, useState } from 'react'
-import { GalleryItemType } from '../internal'
-import { libraries } from '../app.config'
-import { ON_PLACE_CHANGED } from '../utils/constants'
+import { GalleryItemType } from '../types/internal'
+import { libraries } from '../utils/app.config'
+import { ON_PLACE_CHANGED } from '../utils/functions'
 import { useRouter } from 'next/router'
 
 const ExternalContext = createContext<any>(null)

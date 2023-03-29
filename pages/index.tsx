@@ -1,6 +1,6 @@
 import Gallery from '../components/Gallery'
 import { useExternalContext } from '../context/ExternalContext'
-import { website } from '../app.config'
+import { website } from '../utils/app.config'
 import Head from 'next/head'
 
 export default function HomePage() {

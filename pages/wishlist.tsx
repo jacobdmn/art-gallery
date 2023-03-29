@@ -2,7 +2,7 @@ import { GalleryItemType } from '../internal'
 import Gallery from '../components/Gallery'
 import { useExternalContext } from '../context/ExternalContext'
 import Head from 'next/head'
-import { website } from '../app.config'
+import { website } from '../utils/app.config'
 
 export default function HomePage() {
   const { gallery, wishlist } = useExternalContext()
